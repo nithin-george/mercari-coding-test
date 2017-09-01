@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         ((MercariApp) getApplicationContext()).getAppComponent().inject(this);
         Response response = network.getJsonResponse(this);
 
-        for (int i = 0; i < 3; i++)
-            Log.d("MainActivity", response.data.get(i).status);
-
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         recyclerView.setAdapter(new ItemAdapter(response.data));
     }
